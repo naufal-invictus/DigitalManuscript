@@ -3,349 +3,267 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="https://vercel.com/vc-ap-vercel-marketing/_next/static/media/vercel-logotype-light.cf7eca76.svg" type="image/x-icon">
-    <title>Digital Manuscript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Discourses</title>
+    <link rel="shortcut icon"
+    href="1.jpg"
+    type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
-        .rowdies-light {
-            font-family: "Rowdiesl", serif;
-            font-weight: 300;
-            font-style: normal;
-        }
-
-        .rowdies-regular {
-            font-family: "Rowdiesr", serif;
-            font-weight: 400;
-            font-style: normal;
-        }
-
-        .rowdies-bold {
-            font-family: "Rowdiesb", serif;
-            font-weight: 700;
-            font-style: normal;
-        }
-
+        /* Global styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Rowdies';
         }
 
+        /* Background styling */
         body {
-            background-color: #f4f4f4;
+            background-color: #e9debe;
+            font-family: "Josefin Sans", sans-serif;
+            color: #316460;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            position: relative;
         }
 
+        /* Grainy effect */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://www.transparenttextures.com/patterns/black-paper.png");
+            opacity: 0.25; /* Atur transparansi noise */
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Container */
+        /* Navbar Styling */
         .navbar {
-            background: #1e88e5;
-            color: white;
-            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 300;
-
-            font-size: 1.2rem;
-            margin-bottom: 80px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 10px 30px;
+            backdrop-filter: blur(1px);
+            position: fixed;
+            font-family: "Amatic SC", sans-serif;
+            font-weight: 700;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
         }
 
         .navbar .logo {
-            font-weight: bold;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
         }
 
-        .navbar .nav-links {
+        .navbar .social-icons {
             display: flex;
-            gap: 20px;
-        }
-
-        .navbar .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .navbar .nav-links a:hover {
-            color: #bbdefb;
-        }
-
-        .banner {
-            color: rgb(0, 0, 0);
-            margin: 100px;
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .social-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin: 30px;
-        }
-
-        .social-box {
-            background: white;
-            width: 160px;
-            height: 160px;
-            margin: 15px;
-            font-weight: 300;
-
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            font-size: 1.3rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            gap: 10px;
         }
-
-        .social-box img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-
-        .social-box:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .content-section {
-            background: white;
-            padding: 30px;
-            margin: 30px;
-            border-radius: 15px;
-            font-weight: 300;
-
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            font-size: 1.2rem;
-            color: #2c3e50;
-        }
-
-        .span-border {
-            color: rgb(0, 0, 0);
-            font-size: 2.5rem;
-            font-weight: bold;
+        .social-icons {
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
             text-align: center;
-            border-bottom: 5px solid;
-            border-image: linear-gradient(90deg,
-                    red 0% 20%,
-                    yellow 20% 40%,
-                    lime 40% 60%,
-                    cyan 60% 80%,
-                    blue 80% 100%);
-            border-image-slice: 1;
+            justify-content: center;
+            gap: 10px;
         }
+        .navbar .social-icons a {
+            text-decoration: none;
+            color: #316460;
+            font-size: 20px;
+            transition: 0.3s;
+            font-family: "Amatic SC", sans-serif;
 
-        .footer {
-            background: #1e88e5;
+        }
+        .social-icons a {
+            text-decoration: none;
+            color: #316460;
+            font-size: 20px;
+            transition: 0.3s;
+            font-family: "Amatic SC", sans-serif;
+
+        }
+        .navbar .social-icons a:hover {
+            color: #1a3c3c;
+        }
+        .social-icons a:hover {
+            color: #1a3c3c;
+        }
+        /* Button Styling */
+        .navbar .btn {
+            background: #316460;
             color: white;
-            padding: 25px;
-            font-weight: 300;
-            margin-top: 30px;
-            font-size: 1rem;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+
         }
 
-        .skills-container {
+        .navbar .btn:hover {
+            background: #274a4a;
+        }
+
+        .container {
+            max-width: 400px;
+            margin-top: 100px;
+            z-index: 10;
+        }
+
+        /* Header Image */
+        .header-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 3%;
+        }
+
+        /* Text below header */
+        .texth1 {
+            max-width: 100%;
+            margin-top: 10px;
+            padding: 5px;
+            color: #245752;
+
+            font-family: "Amatic SC", sans-serif;
+            font-style: bold;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .text {
+            max-width: 100%;
+            margin-top: 10px;
+            padding: 5px;
+            text-align: left;
+        }
+        .social-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 20px;
+            list-style: none;
+            padding: 0;
         }
 
-        .skills,
-        .soft-skills,
-        .certifications,
-        .awards,
-        .experience {
-            background: #ffffff;
-            border: 2px solid #000000;
-            padding: 15px;
-            border-radius: 10px;
+        .social-list li {
             margin: 10px;
-            font-weight: 300;
-            width: 300px;
-            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
         }
 
-        h2 {
-            color: #1e88e5;
-            border-bottom: 2px solid #a67c52;
-            padding-bottom: 5px;
+        .social-list a {
+            text-decoration: none;
+            color: white;
+            padding: 20px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: 0.3s;
         }
 
-        ul {
-            text-align: left;
-            padding-left: 20px;
+        .social-list a:hover {
+            transform: scale(1.1);
         }
 
+        .social-list i {
+            font-size: 20px;
+        }
 
+        /* Warna Khusus */
+        .quora { background-color: #b92b27; }
+        .wordpress { background-color: #21759b; }
+        .facebook { background-color: #1877f2; }
+        .instagram { background-color: #e4405f; }
+        .threads { background-color: #000; }
+        .blogspot { background-color: #ff5722; }
 
+        /* Responsif */
+        @media (max-width: 600px) {
+            .social-list {
+                flex-direction: column;
+            }
 
-
-        @media (max-width: 768px) {
-            .social-box {
-                width: 130px;
-                height: 130px;
-                font-size: 1rem;
+            .social-list a {
+                justify-content: center;
+                width: 200px;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="logo">Manuskrip Digital</div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#About">Tentang Saya</a>
-            <a href="#contact">Kontak</a>
-        </div>
-    </div>
-    <span class="span-border" style="margin-bottom: 50px;">Manuskrip Digital Emir Naufal</span>
-    <div class="social-container">
-        <div class="social-box" onclick="redirect('https://www.facebook.com/arpharazons')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
-                alt="Facebook">
-            Facebook
-        </div>
-        <div class="social-box" onclick="redirect('https://id.quora.com/profile/Naufal-285')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Quora_logo_2015.svg" alt="Quora">
-            Quora
-        </div>
-        <div class="social-box" onclick="redirect('https://www.instagram.com/naufal_the_great/')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            Instagram
-        </div>
+    <div class="noise-overlay"></div>
 
-        <div class="social-box" onclick="redirect('https://shadowedwisdom.wordpress.com/')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Wordpress-Logo.svg" alt="Wordpress">
-            Wordpress
-        </div>
-        <div class="social-box" onclick="redirect('https://naufalicious4.blogspot.com/')">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Blogger_icon.svg" alt="TikTok">
-            Blogspot
-        </div>
-    </div>
-
-
-
-    <div class="content-section">
-
-        <div id="About" style="text-align: left;">
-            <h4>Tentang Saya</h4>
-            <p>Nama saya Naufal, saya tinggal di Indonesia. Saya memiliki minat yang besar dalam menulis dan membuat
-                artikel, terutama yang berkaitan dengan pengembangan diri & Teori Kepribadian.</p> <br><p>Membaca buku
+    <nav class="navbar">
+        <div class="logo">The Digital Discourses</div>
+        <button class="btn">TENTANG SAYA</button>
+    </nav>
+    <div class="container">
+        
+        <img src="https://s0.wp.com/wp-content/themes/pub/lowfi/assets/images/header-image-wheat.jpg" alt="Header Image"
+            class="header-image">
+            <div class="social-icons">
+                <a href="https://id.quora.com/profile/Naufal-285"><i class="fab fa-quora"></i></a>
+                <a href="https://thedigitaldiscourses.wordpress.com/"><i class="fab fa-wordpress"></i></a>
+                <a href="https://www.facebook.com/arpharazons"><i class="fab fa-facebook"></i></a>
+                <a href="https://msng.link/o?@Emirnawfal=tg"><i class="fab fa-telegram"></i></a>
+                <a href="https://wa.me/083150645824"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://naufalicious4.blogspot.com/"><i class="fab fa-blogger"></i></a>
+                <a href="https://www.instagram.com/naufal_the_great/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.threads.net/@naufal_the_great"><i class="fab fa-threads"></i></a>
+    
+            </div>
+        <h1 class="texth1"><strong>
+                The Digital Discourses
+            </strong></h1>
+            
+        <div class="text">
+            <p>Nama saya adalah Naufal, Saya memiliki minat yang besar dalam menulis dan membuat
+                artikel, terutama yang berkaitan dengan pengembangan diri & Teori Kepribadian.</p> <br>
+            <p>Membaca buku
                 self-development menjadi salah satu kegiatan favorit saya, karena saya selalu berusaha untuk memahami
-                dan meningkatkan kualitas diri.</p> <br> <p>Kepribadian saya adalah ISFJ-Ti dengan kecenderungan pada fungsi Ti
+                dan meningkatkan kualitas diri.</p> <br>
+            <p>Kepribadian saya adalah ISFJ-Ti dengan kecenderungan pada fungsi Ti
                 (Introverted Thinking), di mana saya lebih sering menggunakan fungsi berpikir introvert ini daripada
                 fungsi dominan Si (Introverted Sensing).</p>
         </div>
-
+        <ul class="social-list">
+            <li><a href="https://id.quora.com/profile/Naufal-285" target="_blank" class="quora"><i class="fa-brands fa-quora"></i></a></li>
+            <li><a href="https://thedigitaldiscourses.wordpress.com/" target="_blank" class="wordpress"><i class="fa-brands fa-wordpress"></i></a></li>
+            <li><a href="https://www.facebook.com/arpharazons" target="_blank" class="facebook"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/naufal_the_great/" target="_blank" class="instagram"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.threads.net/@naufal_the_great" target="_blank" class="threads"><i class="fa-solid fa-at"></i></a></li>
+            <li><a href="https://naufalicious4.blogspot.com/" target="_blank" class="blogspot"><i class="fa-brands fa-blogger"></i></a></li>
+        </ul>
+        
     </div>
-    <section class="skills-container">
-        <div class="skills">
-            <h2>Keterampilan Teknis</h2>
-            <ul>
-                <li>Instalasi dan konfigurasi router (Mercusys, TP-Link, Mikrotik).</li>
-                <li>Administrasi jaringan LAN/WAN, topologi jaringan.</li>
-                <li>Instalasi OS (Windows, Linux), Troubleshooting.</li>
-                <li>Konfigurasi FTP server, remote printing.</li>
-                <li>Virtualisasi (VMware, VirtualBox).</li>
-                <li>Dasar bahasa pemrograman (Python).</li>
-                <li>Memahami BIOS/UEFI.</li>
-                <li>Memiliki pemahaman dalam pembuatan model 3D menggunakan Autodesk Inventor untuk gambar teknik dasar.</li>
-            </ul>
-        </div>
-        <div class="soft-skills">
-            <h2>Soft Skills</h2>
-            <ul>
-                <li>Memiliki kemampuan kerja sama tim ataupun individu.</li>
-                <li>Mampu mempelajari hal-hal baru dengan cepat dan efektif.</li>
-                <li>Mampu mengatur prioritas, merencanakan tugas, dan menyelesaikan pekerjaan tepat waktu.</li>
-                <li>Dapat mengelola stres dan tetap produktif dalam situasi tekanan tinggi.</li>
-                <li>Cepat beradaptasi dengan lingkungan baru.</li>
-                <li>Mampu menyaring informasi secara kritis.</li>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-
-            </ul>
-        </div>
-        <div class="certifications">
-            <h2>Sertifikasi</h2>
-            <ul>
-                <li>Mikrotik MTCNA (Mikrotik).</li>
-                <li>3D Model Drawing CAD (BNSP).</li>
-                <li>Dev-Ops Fundamental (Dicoding).</li>
-                <li>Ready4Security (Microsoft).</li>
-                <li>Information Security Fundamental (Udemy)</li>
-                <li>Regex Text Manipulation (Udemy)</li>
-                <li>Coding Interview (Udemy)</li>
-                <li>Google IT Support (Coursera).</li>
-                <li>Bootcamp Quality Assurance (Gits.id).</li>
-            </ul>
-        </div>
-        <div class="awards">
-            <h2>Penghargaan</h2>
-            <ul>
-                <li>Piagam Peserta PKL dengan Nilai Baik/Memuaskan dari PT. XX XX XX | No. 001/SDM/PKL/III/2023 | Tahun 2023.</li>
-            </ul>
-        </div>
-        <div class="experience">
-            <h2>Pengalaman & Proyek</h2>
-            <h3>Jaringan & Infrastruktur</h3>
-            <ul>
-                <li>Instalasi jaringan komputer, konfigurasi LAN, konfigurasi router, troubleshooting komputer.</li>
-                <li>Administrasi Linux Debian dan Windows.</li>
-                <li>Instalasi sistem operasi dan pembuatan kabel RJ45.</li>
-                <li>Perancangan topologi jaringan dan konfigurasi firewall.</li>
-                <li>Virtualisasi serta instalasi dan konfigurasi layanan jaringan (DNS, DHCP, FTP, Web Server).</li>
-        </div>
-        <div class="experience">
-            <h2>Pengalaman & Proyek</h2>
-            <h3>Desain & Pengembangan Konten</h3>
-            <ul>
-                <li>Berkolaborasi dengan tim desainer grafis.</li>
-                <li>Mengembangkan keterampilan desain visual dan pembuatan konten produk.</li>            
-                <li>Bekerja sama dengan tim teknis untuk memastikan acara berjalan lancar.</li>
-            </ul>
-        </div>
-        <div class="experience">
-            <h2>Pengalaman & Proyek</h2>
-            <h3>Manajemen Acara & Operasional</h3>
-            <ul>
-                <li>Mengelola logistik dan inventaris peralatan, memastikan ketersediaan dan kondisi peralatan yang optimal.</li>
-                <li>Aktif berpartisipasi dalam rapat perencanaan dan evaluasi acara, memberikan kontribusi ide dan solusi.</li>
-                <li>Memfasilitasi rapat koordinasi antara tim teknis dan tim lain untuk memastikan sinkronisasi dan kelancaran acara.</li>
-
-            </ul>
-
-        </div>
-        <div class="experience">
-            <h2>Pengalaman & Proyek</h2>
-            <h3>Administrasi & HR</h3>
-            <ul>
-                <li>Mengelola dan memeriksa data gaji serta BPJS karyawan.</li>
-                <li>Mendukung tim HR dalam proses rekrutmen, termasuk penyaringan kandidat.</li>
-                <li>Mengelola arsip dokumen kepegawaian dan memastikan kelengkapan data personalia.</li>
-                <li>Menggunakan Microsoft Excel untuk mengolah data kehadiran, gaji, dan tunjangan, serta menyusun
-                    laporan yang diperlukan.</li>
-            </ul>
-        </div>
-    </section>
-
-    <div class="footer" id="contact">&copy; 2025 Manuskrip Digital | All Rights Reserved | +62 831-5064-5824
-        <p>naufal.maulana.hafizh27@email.com</p></div>
-    <script>
-        function redirect(url) {
-            window.open(url, '_blank');
-        }
-    </script>
 </body>
 
 </html>
